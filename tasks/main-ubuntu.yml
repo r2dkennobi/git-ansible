@@ -1,0 +1,15 @@
+---
+- name: Add latest git ppa
+  become: yes
+  apt_repository:
+    repo: "ppa:git-core/ppa"
+    state: present
+    update_cache: yes
+
+- name: Install latest git
+  become: yes
+  apt:
+    name: git
+    state: latest
+    update_cache: yes
+    cache_valid_time: 300
